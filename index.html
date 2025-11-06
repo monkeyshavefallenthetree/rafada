@@ -12,6 +12,22 @@
         }
 
         :root {
+            /* ============================================
+               PHOTO URLS - EDIT ALL IMAGES HERE
+               ============================================ */
+            
+            /* Hero Slideshow Images (2 rotating images) */
+            --hero-slide-1: url('photos/hero3.webp');
+            --hero-slide-2: url('photos/hero1.webp');
+            
+            /* Section Background Images */
+            --projects-bg: url('photos/project.webp');
+            --contact-bg: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80&fit=crop');
+            --footer-bg: url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1920&q=80&fit=crop');
+            
+            /* ============================================
+               COLOR SCHEME
+               ============================================ */
             --primary-gold: #D4AF37;
             --secondary-gold: #FFD700;
             --light-gold: #F4E5C2;
@@ -58,9 +74,10 @@
 
         p {
             font-family: 'Lato', 'Arial', sans-serif;
-            font-weight: 300;
-            line-height: 1.8;
-            color: var(--text-gray);
+            font-weight: 400;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.1rem;
         }
 
         a {
@@ -76,49 +93,37 @@
 
         /* Navigation */
         nav {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: calc(100% - 40px);
-            max-width: 1200px;
-            background: rgba(5, 5, 5, 0.65);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
+            position: relative;
+            width: 100%;
+            background: linear-gradient(135deg, 
+                rgba(5, 5, 5, 0.95) 0%, 
+                rgba(15, 15, 15, 0.98) 50%, 
+                rgba(5, 5, 5, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             z-index: 1000;
-            padding: 10px 35px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border-radius: 20px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 20px 0;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
             box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.3),
-                0 2px 8px rgba(212, 175, 55, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+                0 4px 20px rgba(0, 0, 0, 0.4),
+                0 1px 4px rgba(212, 175, 55, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
 
-        nav.scrolled {
-            background: rgba(5, 5, 5, 0.80);
-            border-color: rgba(212, 175, 55, 0.3);
-            box-shadow: 
-                0 12px 40px rgba(0, 0, 0, 0.5),
-                0 4px 12px rgba(212, 175, 55, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
         }
 
         .logo {
-            height: 120px;
+            height: 80px;
             transition: all 0.3s ease;
-            margin-right: auto;
-            margin-left: -20px;
-            margin-top: -10px;
-            margin-bottom: -10px;
         }
 
         .logo img {
@@ -143,16 +148,16 @@
 
         .nav-links a {
             font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
+            font-size: 16px;
+            font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             position: relative;
-            padding: 12px 20px;
-            border-radius: 12px;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 15px 30px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
             background: transparent;
-            backdrop-filter: blur(10px);
-            border: 1px solid transparent;
+            border: 2px solid transparent;
         }
 
         .nav-links a::before {
@@ -170,13 +175,13 @@
         }
 
         .nav-links a:hover {
-            color: var(--secondary-gold);
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-            border-color: rgba(212, 175, 55, 0.3);
+            color: var(--dark-black);
+            background: var(--primary-gold);
+            border-color: var(--primary-gold);
             box-shadow: 
-                0 4px 15px rgba(212, 175, 55, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
+                0 6px 20px rgba(212, 175, 55, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
         }
 
         .nav-links a:hover::before {
@@ -252,7 +257,7 @@
         /* Rafada Branding - Top Left */
         .hero-branding {
             position: absolute;
-            top: 55%;
+            top: 45%;
             left: 6%;
             transform: translateY(-50%);
             z-index: 3;
@@ -312,32 +317,33 @@
         }
 
         .hero-tagline {
-            font-size: clamp(1.3rem, 2.8vw, 2rem);
+            font-size: clamp(1.5rem, 3vw, 2.4rem);
             color: var(--text-light);
-            font-weight: 400;
-            line-height: 1.4;
+            font-weight: 500;
+            line-height: 1.5;
             margin-bottom: 35px;
             opacity: 0;
             animation: fadeInUp 1s ease-out 1s both;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1.2px;
+            text-shadow: 0 3px 15px rgba(0, 0, 0, 0.7);
         }
 
         .hero-description {
-            font-size: 1.1rem;
-            color: var(--text-gray);
-            line-height: 1.8;
+            font-size: 1.3rem;
+            color: var(--text-light);
+            line-height: 1.7;
             margin-bottom: 45px;
-            max-width: 480px;
+            max-width: 520px;
             opacity: 0;
             animation: fadeInUp 1s ease-out 1.3s both;
-            font-weight: 300;
+            font-weight: 400;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
         }
 
         /* Client Info - Bottom Right */
         .hero-client-info {
             position: absolute;
-            top: 55%;
+            top: 45%;
             right: 6%;
             transform: translateY(-50%);
             z-index: 3;
@@ -423,24 +429,24 @@
         }
 
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 800;
             color: var(--primary-gold);
             font-family: 'Montserrat', sans-serif;
             display: block;
             line-height: 1;
-            margin-bottom: 8px;
-            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+            margin-bottom: 10px;
+            text-shadow: 0 3px 15px rgba(212, 175, 55, 0.4);
             position: relative;
             z-index: 1;
         }
 
         .stat-label {
-            font-size: 0.95rem;
-            color: var(--text-gray);
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 500;
+            letter-spacing: 1.8px;
+            font-weight: 600;
             position: relative;
             z-index: 1;
         }
@@ -467,16 +473,17 @@
         }
 
         .contact-title {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: var(--primary-gold);
-            margin-bottom: 15px;
-            font-weight: 500;
+            margin-bottom: 18px;
+            font-weight: 600;
         }
 
         .contact-details {
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             color: var(--text-light);
-            line-height: 1.6;
+            line-height: 1.7;
+            font-weight: 400;
         }
 
         .contact-details a {
@@ -496,20 +503,20 @@
         .hero-cta {
             display: inline-flex;
             align-items: center;
-            padding: 18px 40px;
+            padding: 20px 45px;
             background: rgba(212, 175, 55, 0.15);
             backdrop-filter: blur(20px);
             border: 2px solid var(--primary-gold);
             border-radius: 15px;
             color: var(--primary-gold);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
-            font-size: 1rem;
+            font-size: 1.2rem;
             opacity: 0;
             animation: fadeInUp 1s ease-out 1.6s both;
             box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
@@ -617,22 +624,66 @@
             }
         }
 
-        /* Extra wide screen constraints */
-        @media (min-width: 1600px) {
+        /* Medium desktop screens */
+        @media (min-width: 1024px) and (max-width: 1199px) {
             .hero-branding {
-                left: 15%;
+                top: 45%;
+                left: 7%;
+                max-width: 580px;
             }
             
             .hero-client-info {
-                right: 15%;
+                top: 45%;
+                right: 7%;
+                max-width: 480px;
+            }
+            
+            .hero-logo {
+                font-size: clamp(5.5rem, 7vw, 7rem);
+            }
+            
+            .hero-tagline {
+                font-size: clamp(1.8rem, 2.8vw, 2.2rem);
+                line-height: 1.4;
+            }
+            
+            .hero-description {
+                font-size: 1.4rem;
+                line-height: 1.6;
+            }
+        }
+
+        /* Large desktop screens */
+        @media (min-width: 1400px) {
+            .hero-branding {
+                left: 10%;
+                max-width: 700px;
+            }
+            
+            .hero-client-info {
+                right: 10%;
+                max-width: 600px;
+            }
+        }
+
+        /* Extra wide screen constraints */
+        @media (min-width: 1600px) {
+            .hero-branding {
+                left: 12%;
+                max-width: 750px;
+            }
+            
+            .hero-client-info {
+                right: 12%;
+                max-width: 650px;
             }
         }
 
         /* Desktop-only enhancements */
         @media (min-width: 1200px) {
             .hero-branding {
-                top: 55%;
-                left: 10%;
+                top: 45%;
+                left: 8%;
                 transform: translateY(-50%);
                 max-width: 650px;
             }
@@ -643,19 +694,21 @@
             }
 
             .hero-tagline {
-                font-size: 2.2rem;
+                font-size: 2.6rem;
                 margin-bottom: 40px;
+                line-height: 1.4;
             }
 
             .hero-description {
-                font-size: 1.2rem;
-                max-width: 520px;
+                font-size: 1.5rem;
+                max-width: 580px;
                 margin-bottom: 50px;
+                line-height: 1.6;
             }
 
             .hero-client-info {
-                top: 55%;
-                right: 10%;
+                top: 45%;
+                right: 8%;
                 transform: translateY(-50%);
                 max-width: 550px;
             }
@@ -670,8 +723,59 @@
             }
 
             .stat-number {
-                font-size: 3rem;
-                margin-bottom: 10px;
+                font-size: 3.5rem;
+                margin-bottom: 12px;
+            }
+
+            .stat-label {
+                font-size: 1.2rem;
+            }
+
+            .hero-cta {
+                padding: 22px 50px;
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Tablet Landscape (1024px - 1199px) */
+        @media (min-width: 769px) and (max-width: 1199px) {
+            .hero {
+                height: auto;
+                min-height: 100vh;
+            }
+
+            .hero-branding {
+                max-width: 500px;
+                left: 5%;
+            }
+
+            .hero-client-info {
+                max-width: 450px;
+                right: 5%;
+            }
+
+            .hero-logo {
+                font-size: clamp(5rem, 7vw, 6.5rem);
+            }
+
+            .hero-tagline {
+                font-size: clamp(1.8rem, 3vw, 2.2rem);
+            }
+
+            .hero-description {
+                font-size: clamp(1.2rem, 2vw, 1.4rem);
+            }
+
+            .client-stats {
+                gap: 20px;
+            }
+
+            .stat-item {
+                padding: 20px 18px;
+            }
+
+            .stat-number {
+                font-size: 2.8rem;
             }
 
             .stat-label {
@@ -679,22 +783,21 @@
             }
 
             .hero-cta {
-                padding: 20px 45px;
+                padding: 18px 40px;
                 font-size: 1.1rem;
             }
-
-
         }
 
-        /* Responsive Design for Hero */
+        /* Responsive Design for Hero - Tablet Portrait */
         @media (max-width: 768px) {
 
             .hero {
                 min-height: 100vh;
+                height: auto;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
-                padding: 120px 0 20px 0;
+                justify-content: center;
+                padding: 140px 0 40px 0;
                 position: relative;
             }
 
@@ -707,9 +810,9 @@
                 height: 100%;
                 background: linear-gradient(
                     135deg,
-                    rgba(0, 0, 0, 0.4) 0%,
-                    rgba(0, 0, 0, 0.2) 50%,
-                    rgba(0, 0, 0, 0.4) 100%
+                    rgba(0, 0, 0, 0.5) 0%,
+                    rgba(0, 0, 0, 0.3) 50%,
+                    rgba(0, 0, 0, 0.5) 100%
                 );
                 z-index: 2;
                 pointer-events: none;
@@ -727,9 +830,10 @@
                 left: auto;
                 right: auto;
                 transform: none;
-                max-width: none;
-                padding: 25px 20px;
-                margin: 20px;
+                max-width: 100%;
+                width: 100%;
+                padding: 30px 25px;
+                margin: 20px auto;
                 background: transparent;
                 backdrop-filter: none;
                 border-radius: 20px;
@@ -795,9 +899,10 @@
                 left: auto;
                 top: auto;
                 transform: none;
-                max-width: none;
-                padding: 25px 20px;
-                margin: 20px;
+                max-width: 100%;
+                width: 100%;
+                padding: 30px 25px;
+                margin: 20px auto;
                 background: transparent;
                 backdrop-filter: none;
                 border-radius: 20px;
@@ -807,61 +912,67 @@
             }
 
             .client-stats {
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
-                margin-bottom: 20px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                margin-bottom: 25px;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .stat-item {
-                padding: 15px 10px;
-                background: rgba(212, 175, 55, 0.1);
-                border: 1px solid rgba(212, 175, 55, 0.3);
-                border-radius: 12px;
-                backdrop-filter: blur(10px);
+                padding: 18px 12px;
+                background: rgba(212, 175, 55, 0.12);
+                border: 1px solid rgba(212, 175, 55, 0.35);
+                border-radius: 14px;
+                backdrop-filter: blur(15px);
             }
 
             .stat-number {
-                font-size: 1.4rem;
-                margin-bottom: 5px;
+                font-size: 1.8rem;
+                margin-bottom: 6px;
                 color: var(--primary-gold);
                 font-weight: 700;
                 text-shadow: 
                     2px 2px 0px rgba(0, 0, 0, 0.9),
-                    0px 0px 10px rgba(0, 0, 0, 0.8),
-                    0px 0px 20px rgba(0, 0, 0, 0.6);
+                    0px 0px 12px rgba(0, 0, 0, 0.8),
+                    0px 0px 24px rgba(0, 0, 0, 0.6);
             }
 
             .stat-label {
-                font-size: 0.75rem;
+                font-size: 0.85rem;
                 color: var(--text-light);
                 font-weight: 500;
                 text-shadow: 
                     1px 1px 0px rgba(0, 0, 0, 0.9),
-                    0px 0px 6px rgba(0, 0, 0, 0.8),
-                    0px 0px 12px rgba(0, 0, 0, 0.6);
+                    0px 0px 8px rgba(0, 0, 0, 0.8),
+                    0px 0px 14px rgba(0, 0, 0, 0.6);
             }
 
             .client-contact {
-                padding: 18px;
-                background: transparent;
-                border: none;
-                border-radius: 15px;
+                padding: 22px 20px;
+                background: rgba(5, 5, 5, 0.3);
+                border: 1px solid rgba(212, 175, 55, 0.25);
+                border-radius: 16px;
+                backdrop-filter: blur(15px);
+                max-width: 500px;
+                margin: 0 auto;
             }
 
             .contact-title {
-                font-size: 1.1rem;
-                margin-bottom: 10px;
+                font-size: 1.3rem;
+                margin-bottom: 12px;
                 color: var(--primary-gold);
                 font-weight: 600;
                 text-shadow: 
                     2px 2px 0px rgba(0, 0, 0, 0.9),
-                    0px 0px 10px rgba(0, 0, 0, 0.8),
-                    0px 0px 20px rgba(0, 0, 0, 0.6);
+                    0px 0px 12px rgba(0, 0, 0, 0.8),
+                    0px 0px 24px rgba(0, 0, 0, 0.6);
             }
 
             .contact-details {
-                font-size: 0.85rem;
-                line-height: 1.7;
+                font-size: 0.95rem;
+                line-height: 1.8;
                 color: var(--text-light);
                 font-weight: 400;
                 text-shadow: 
@@ -871,29 +982,71 @@
             }
 
             .contact-details p {
-                margin-bottom: 5px;
+                margin-bottom: 6px;
             }
 
             .hero-cta {
-                padding: 15px 30px;
-                font-size: 0.9rem;
-                margin-top: 20px;
-                border-radius: 25px;
+                padding: 16px 35px;
+                font-size: 1rem;
+                margin-top: 25px;
+                border-radius: 30px;
                 display: inline-block;
                 font-weight: 600;
                 text-shadow: 
-                    1px 1px 0px rgba(0, 0, 0, 0.5),
-                    0px 0px 8px rgba(0, 0, 0, 0.3);
+                    1px 1px 0px rgba(0, 0, 0, 0.6),
+                    0px 0px 10px rgba(0, 0, 0, 0.4);
                 box-shadow: 
-                    0 4px 15px rgba(212, 175, 55, 0.3),
-                    0 2px 8px rgba(0, 0, 0, 0.2);
+                    0 6px 20px rgba(212, 175, 55, 0.35),
+                    0 3px 10px rgba(0, 0, 0, 0.3);
             }
 
             .floating-particles {
                 display: none;
             }
 
+            /* Investment Highlights Mobile */
+            .investment-highlights {
+                padding: 80px 0;
+            }
+
+            .investment-content {
+                padding: 40px 25px;
+                border-radius: 20px;
+            }
+
+            .investment-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                margin-top: 40px;
+                margin-bottom: 40px;
+            }
+
+            .inv-stat-item {
+                padding: 25px 20px;
+            }
+
+            .inv-stat-number {
+                font-size: 2.5rem;
+            }
+
+            .inv-stat-label {
+                font-size: 0.95rem;
+                letter-spacing: 1px;
+            }
+
+            .investment-actions {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .investment-btn {
+                width: 100%;
+                padding: 18px 35px;
+                font-size: 1rem;
+            }
+
             /* Mobile background optimizations */
+            .investment-highlights,
             .projects,
             .contact,
             footer {
@@ -921,14 +1074,58 @@
             }
         }
 
+        /* Mobile Small (481px - 768px) */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .hero {
+                padding: 130px 0 30px 0;
+            }
+
+            .hero-branding,
+            .hero-client-info {
+                padding: 28px 22px;
+                margin: 18px;
+            }
+
+            .hero-logo {
+                font-size: clamp(2.5rem, 8vw, 3.5rem);
+            }
+
+            .hero-tagline {
+                font-size: clamp(1.2rem, 4vw, 1.5rem);
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .client-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+            }
+
+            .stat-item {
+                padding: 16px 12px;
+            }
+
+            .stat-number {
+                font-size: 1.6rem;
+            }
+
+            .stat-label {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Mobile Extra Small (below 481px) */
         @media (max-width: 480px) {
             .hero {
-                padding: 80px 0 15px 0;
+                padding: 100px 0 20px 0;
+                min-height: 100vh;
             }
 
             .hero-branding {
-                margin: 15px;
-                padding: 20px 15px;
+                margin: 12px;
+                padding: 22px 18px;
                 border-radius: 18px;
                 background: transparent;
                 backdrop-filter: none;
@@ -936,7 +1133,7 @@
             }
 
             .hero-logo {
-                font-size: clamp(1.8rem, 9vw, 2.5rem);
+                font-size: clamp(2rem, 10vw, 2.8rem);
                 margin-bottom: 12px;
                 background: none !important;
                 -webkit-background-clip: unset !important;
@@ -946,37 +1143,37 @@
                 color: var(--primary-gold);
                 font-weight: 700;
                 text-shadow: 
-                    3px 3px 0px rgba(0, 0, 0, 0.9),
-                    0px 0px 15px rgba(0, 0, 0, 0.8),
-                    0px 0px 30px rgba(0, 0, 0, 0.6);
+                    3px 3px 0px rgba(0, 0, 0, 0.95),
+                    0px 0px 18px rgba(0, 0, 0, 0.85),
+                    0px 0px 35px rgba(0, 0, 0, 0.7);
             }
 
             .hero-tagline {
-                font-size: clamp(0.9rem, 4vw, 1.1rem);
+                font-size: clamp(1rem, 5vw, 1.3rem);
                 margin-bottom: 12px;
                 color: var(--text-light);
                 font-weight: 500;
                 text-shadow: 
-                    2px 2px 0px rgba(0, 0, 0, 0.9),
-                    0px 0px 10px rgba(0, 0, 0, 0.8),
-                    0px 0px 20px rgba(0, 0, 0, 0.6);
+                    2px 2px 0px rgba(0, 0, 0, 0.95),
+                    0px 0px 12px rgba(0, 0, 0, 0.85),
+                    0px 0px 24px rgba(0, 0, 0, 0.7);
             }
 
             .hero-description {
-                font-size: 0.8rem;
-                margin-bottom: 18px;
-                line-height: 1.6;
+                font-size: 0.9rem;
+                margin-bottom: 20px;
+                line-height: 1.65;
                 color: var(--text-light);
                 font-weight: 400;
                 text-shadow: 
-                    1px 1px 0px rgba(0, 0, 0, 0.9),
-                    0px 0px 8px rgba(0, 0, 0, 0.8),
-                    0px 0px 16px rgba(0, 0, 0, 0.6);
+                    1px 1px 0px rgba(0, 0, 0, 0.95),
+                    0px 0px 10px rgba(0, 0, 0, 0.85),
+                    0px 0px 18px rgba(0, 0, 0, 0.7);
             }
 
             .hero-client-info {
-                margin: 15px;
-                padding: 20px 15px;
+                margin: 12px;
+                padding: 22px 18px;
                 border-radius: 18px;
                 background: transparent;
                 backdrop-filter: none;
@@ -984,50 +1181,50 @@
             }
 
             .client-stats {
-                grid-template-columns: 1fr;
-                gap: 8px;
-                margin-bottom: 15px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                margin-bottom: 18px;
             }
 
             .stat-item {
-                padding: 12px 8px;
-                border-radius: 10px;
+                padding: 14px 10px;
+                border-radius: 12px;
             }
 
             .stat-number {
-                font-size: 1.2rem;
-                margin-bottom: 4px;
+                font-size: 1.4rem;
+                margin-bottom: 5px;
             }
 
             .stat-label {
-                font-size: 0.7rem;
+                font-size: 0.72rem;
             }
 
             .client-contact {
-                padding: 15px 12px;
-                border-radius: 12px;
-                background: transparent;
-                border: none;
+                padding: 18px 15px;
+                border-radius: 14px;
+                background: rgba(5, 5, 5, 0.25);
+                border: 1px solid rgba(212, 175, 55, 0.2);
             }
 
             .contact-title {
-                font-size: 1rem;
-                margin-bottom: 8px;
+                font-size: 1.1rem;
+                margin-bottom: 10px;
             }
 
             .contact-details {
-                font-size: 0.75rem;
-                line-height: 1.5;
+                font-size: 0.85rem;
+                line-height: 1.6;
             }
 
             .contact-details p {
-                margin-bottom: 4px;
+                margin-bottom: 5px;
             }
 
             .hero-cta {
-                padding: 12px 25px;
-                font-size: 0.8rem;
-                margin-top: 15px;
+                padding: 14px 28px;
+                font-size: 0.9rem;
+                margin-top: 18px;
             }
 
             /* Additional mobile optimizations */
@@ -1074,18 +1271,12 @@
 
         /* Extra small screens */
         @media (max-width: 360px) {
-            nav {
-                top: 8px;
-                width: calc(100% - 16px);
-                padding: 12px 14px;
-                border-radius: 14px;
+            .nav-container {
+                padding: 0 15px;
             }
 
             .logo {
-                height: 60px;
-                margin-left: -8px;
-                margin-top: -4px;
-                margin-bottom: -4px;
+                height: 55px;
             }
 
             .hero {
@@ -1233,11 +1424,11 @@
         }
 
         .section-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(3rem, 5vw, 4.5rem);
             text-align: center;
-            margin-bottom: 20px;
-            font-weight: 200;
-            letter-spacing: -1px;
+            margin-bottom: 25px;
+            font-weight: 300;
+            letter-spacing: -0.5px;
             position: relative;
             display: inline-block;
             width: 100%;
@@ -1257,15 +1448,16 @@
 
         .section-subtitle {
             text-align: center;
-            font-size: 1.1rem;
-            color: var(--text-gray);
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 60px;
             margin-top: 30px;
-            max-width: 700px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            opacity: 0.8;
-            line-height: 1.8;
+            opacity: 1;
+            line-height: 1.7;
+            font-weight: 400;
         }
 
         /* Scroll indicator */
@@ -1288,11 +1480,181 @@
 
 
 
+        /* Investment Highlights Section */
+        .investment-highlights {
+            padding: 120px 0;
+            background: 
+                linear-gradient(135deg, rgba(5, 5, 5, 0.75) 0%, rgba(5, 5, 5, 0.85) 100%),
+                var(--projects-bg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .investment-highlights::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 60%),
+                linear-gradient(135deg, rgba(5, 5, 5, 0.3) 0%, rgba(15, 15, 15, 0.4) 100%);
+            z-index: 1;
+        }
+
+        .investment-highlights .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .investment-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 60px 50px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .investment-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .inv-stat-item {
+            text-align: center;
+            padding: 35px 25px;
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 16px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .inv-stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--diagonal-gold-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .inv-stat-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .inv-stat-item:hover::before {
+            opacity: 1;
+        }
+
+        .inv-stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary-gold);
+            font-family: 'Montserrat', sans-serif;
+            display: block;
+            line-height: 1;
+            margin-bottom: 15px;
+            text-shadow: 0 3px 15px rgba(212, 175, 55, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        .inv-stat-label {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .investment-actions {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .investment-btn {
+            padding: 20px 45px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: 2px solid;
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .investment-btn::after {
+            content: '→';
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .investment-btn:hover::after {
+            transform: translateX(5px);
+        }
+
+        .primary-btn {
+            background: var(--primary-gold);
+            border-color: var(--primary-gold);
+            color: var(--dark-black);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .primary-btn:hover {
+            background: var(--secondary-gold);
+            border-color: var(--secondary-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            border-color: var(--primary-gold);
+            color: var(--primary-gold);
+            backdrop-filter: blur(10px);
+        }
+
+        .secondary-btn:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+        }
+
         /* Projects Section */
         .projects {
             background: 
                 linear-gradient(135deg, rgba(5, 5, 5, 0.40) 0%, rgba(5, 5, 5, 0.55) 100%),
-                url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+                var(--projects-bg);
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -1342,10 +1704,11 @@
         }
 
         .project-info p {
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 1.3rem;
+            line-height: 1.7;
             margin-bottom: 30px;
             color: var(--text-light);
+            font-weight: 400;
         }
 
         .project-features {
@@ -1453,9 +1816,9 @@
         }
 
         .project-name {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            font-weight: 300;
+            font-size: 2.2rem;
+            margin-bottom: 18px;
+            font-weight: 400;
             background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -1463,10 +1826,11 @@
         }
 
         .project-description {
-            color: var(--text-gray);
-            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
             margin-bottom: 25px;
-            font-size: 0.95rem;
+            font-size: 1.2rem;
+            font-weight: 400;
         }
 
         .featured-project {
@@ -1594,7 +1958,7 @@
         .contact {
             background: 
                 linear-gradient(45deg, rgba(5, 5, 5, 0.65) 0%, rgba(10, 10, 10, 0.75) 100%),
-                url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+                var(--contact-bg);
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -1754,7 +2118,7 @@
         footer {
             background: 
                 linear-gradient(180deg, rgba(5, 5, 5, 0.70) 0%, rgba(10, 10, 10, 0.80) 100%),
-                url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+                var(--footer-bg);
             background-size: cover;
             background-position: center bottom;
             background-attachment: fixed;
@@ -1833,24 +2197,16 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             nav {
-                top: 10px;
-                width: calc(100% - 20px);
-                padding: 14px 16px;
-                border-radius: 16px;
-                background: rgba(5, 5, 5, 0.85);
-                backdrop-filter: blur(20px);
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            }
+            
+            .nav-container {
+                padding: 0 20px;
             }
 
             .logo {
-                height: 65px;
-                margin-left: -10px;
-                margin-top: -5px;
-                margin-bottom: -5px;
-            }
-
-            nav.scrolled {
-                background: rgba(5, 5, 5, 0.92);
-                backdrop-filter: blur(25px);
+                height: 60px;
             }
 
 
@@ -1975,7 +2331,35 @@
         }
 
         @media (max-width: 480px) {
+            .investment-content {
+                padding: 30px 20px;
+            }
 
+            .investment-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+
+            .inv-stat-item {
+                padding: 18px 12px;
+            }
+
+            .inv-stat-number {
+                font-size: 1.8rem;
+                margin-bottom: 8px;
+            }
+
+            .inv-stat-label {
+                font-size: 0.8rem;
+                letter-spacing: 1px;
+            }
+
+            .investment-btn {
+                padding: 16px 30px;
+                font-size: 0.95rem;
+            }
 
             .projects-grid {
                 grid-template-columns: 1fr;
@@ -2013,7 +2397,8 @@
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="golden-visa.html">Golden Visa</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="menu-toggle" id="menuToggle">
@@ -2028,11 +2413,8 @@
     <section class="hero" id="home">
         <!-- Photo Gallery Background -->
         <div class="hero-gallery">
-            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=1920&h=1080&fit=crop&crop=center')"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1555993539-1732b0258235?w=1920&h=1080&fit=crop&crop=center')"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1580837119756-563d608dd119?w=1920&h=1080&fit=crop&crop=center')"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1920&h=1080&fit=crop&crop=center')"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=1920&h=1080&fit=crop&crop=center')"></div>
+            <div class="hero-slide active" style="background-image: var(--hero-slide-1)"></div>
+            <div class="hero-slide" style="background-image: var(--hero-slide-2)"></div>
         </div>
 
         <!-- Floating Particles -->
@@ -2047,31 +2429,31 @@
         <!-- Rafada Branding - Top Left -->
         <div class="hero-branding">
             <h1 class="hero-logo">Rafada</h1>
-            <p class="hero-tagline">Luxury Real Estate in Glyfada</p>
+            <p class="hero-tagline">Golden Visa Gateway to Athens</p>
             <p class="hero-description">
-                Creating exceptional properties that blend modern architecture with timeless elegance in Greece's most prestigious coastal location.
+                Secure your European residency through premium real estate investment in Athens. Live in one of Europe's most vibrant capitals with world-class beaches, shopping, and exceptional returns.
             </p>
-            <a href="#projects" class="hero-cta">View Properties</a>
+            <a href="projects.html" class="hero-cta">View Properties</a>
                     </div>
 
         <!-- Client Info - Bottom Right -->
         <div class="hero-client-info">
             <div class="client-stats">
                 <div class="stat-item">
-                    <span class="stat-number">25+</span>
-                    <span class="stat-label">Projects</span>
+                    <span class="stat-number">40+</span>
+                    <span class="stat-label">Beaches</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">100+</span>
-                    <span class="stat-label">Happy Clients</span>
+                    <span class="stat-number">25+</span>
+                    <span class="stat-label">Shopping Malls</span>
                     </div>
                 <div class="stat-item">
-                    <span class="stat-number">15</span>
-                    <span class="stat-label">Years Experience</span>
+                    <span class="stat-number">8%</span>
+                    <span class="stat-label">ROI Athens</span>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">€50M+</span>
-                    <span class="stat-label">Property Value</span>
+                <div class="stat-item" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%); border: 2px solid var(--primary-gold); cursor: pointer;">
+                    <span class="stat-number" style="font-size: 1.4rem; line-height: 1.3;">Get Your<br>Golden Visa</span>
+                    <span class="stat-label" style="color: var(--primary-gold); font-weight: 700;">NOW →</span>
                     </div>
                 </div>
             
@@ -2090,74 +2472,40 @@
     </section>
 
 
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
+    <!-- Investment Highlights Section -->
+    <section class="investment-highlights" id="investment">
         <div class="container">
-            <h2 class="section-title fade-in">Our Portfolio</h2>
-            <p class="section-subtitle fade-in">
-                Explore our collection of distinguished developments
-            </p>
-            <div class="projects-grid">
-                <div class="project-card fade-in featured-project">
-                    <div class="project-image">
-                        <img src="onyx residance/exterior 3.jpeg" alt="Onyx Residence" loading="lazy">
-                        <div class="contact-buttons-overlay">
-                            <a href="https://wa.me/+306912345678?text=Hello, I'm interested in Onyx Residence project" class="contact-btn whatsapp-btn" target="_blank" title="Contact via WhatsApp">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.384"/>
-                                </svg>
-                            </a>
-                            <a href="tel:+306912345678" class="contact-btn phone-btn" title="Call us">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                                </svg>
-                            </a>
-                        </div>
+            <div class="investment-content fade-in">
+                <h2 class="section-title">Investment Highlights</h2>
+                <p class="section-subtitle">Greece offers one of the most attractive Golden Visa programs in Europe with exceptional value and returns</p>
+                
+                <div class="investment-stats">
+                    <div class="inv-stat-item">
+                        <span class="inv-stat-number">€250K</span>
+                        <span class="inv-stat-label">Minimum Investment</span>
                     </div>
-                    <div class="project-details">
-                        <h3 class="project-name">Onyx Residence</h3>
-                        <p class="project-description">
-                            The pinnacle of contemporary design and luxurious comfort in Glyfada, 
-                            offering breathtaking views and world-class amenities.
-                        </p>
-                        <a href="onyx-residence.html" class="view-project">View Project Details</a>
+                    <div class="inv-stat-item">
+                        <span class="inv-stat-number">~6%</span>
+                        <span class="inv-stat-label">Annual Returns</span>
+                    </div>
+                    <div class="inv-stat-item">
+                        <span class="inv-stat-number">5 Years</span>
+                        <span class="inv-stat-label">Renewal Period</span>
+                    </div>
+                    <div class="inv-stat-item">
+                        <span class="inv-stat-number">27</span>
+                        <span class="inv-stat-label">Schengen Countries</span>
                     </div>
                 </div>
-                <!-- Commented out until ready to add other projects
-                <div class="project-card fade-in">
-                    <div class="project-image">Azure Heights</div>
-                    <div class="project-details">
-                        <h3 class="project-name">Azure Heights</h3>
-                        <p class="project-description">
-                            Luxury beachfront residences featuring stunning Mediterranean architecture 
-                            and exclusive amenities in Athens Riviera.
-                        </p>
-                    </div>
+
+                <div class="investment-actions">
+                    <a href="projects.html" class="investment-btn primary-btn">View Projects</a>
+                    <a href="#contact" class="investment-btn secondary-btn">Schedule Meeting</a>
                 </div>
-                <div class="project-card fade-in">
-                    <div class="project-image">Golden Square</div>
-                    <div class="project-details">
-                        <h3 class="project-name">Golden Square</h3>
-                        <p class="project-description">
-                            Premium commercial and residential complex in the heart of Athens, 
-                            combining business excellence with urban luxury.
-                        </p>
-                    </div>
-                </div>
-                <div class="project-card fade-in">
-                    <div class="project-image">Villa Helios</div>
-                    <div class="project-details">
-                        <h3 class="project-name">Villa Helios</h3>
-                        <p class="project-description">
-                            Exclusive collection of private villas on the island of Mykonos, 
-                            offering unparalleled privacy and Aegean Sea views.
-                        </p>
-                    </div>
-                </div>
-                -->
             </div>
         </div>
     </section>
+
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
@@ -2302,15 +2650,7 @@
             this.classList.toggle('active');
         });
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+        // Navbar is now static - scroll effect removed
 
         // Intersection Observer for fade-in animations
         const fadeElements = document.querySelectorAll('.fade-in');
@@ -2397,6 +2737,27 @@
             const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrollProgress = (scrolled / windowHeight) * 100;
             document.getElementById('scrollProgress').style.width = scrollProgress + '%';
+        });
+
+        // Golden Visa CTA click handler - make the last stat item clickable
+        document.addEventListener('DOMContentLoaded', () => {
+            const goldenVisaStat = document.querySelector('.stat-item[style*="cursor: pointer"]');
+            if (goldenVisaStat) {
+                goldenVisaStat.addEventListener('click', () => {
+                    window.location.href = 'golden-visa.html';
+                });
+                
+                // Add hover effect
+                goldenVisaStat.addEventListener('mouseenter', () => {
+                    goldenVisaStat.style.transform = 'translateY(-8px) scale(1.05)';
+                    goldenVisaStat.style.boxShadow = '0 20px 45px rgba(212, 175, 55, 0.4)';
+                });
+                
+                goldenVisaStat.addEventListener('mouseleave', () => {
+                    goldenVisaStat.style.transform = 'translateY(0) scale(1)';
+                    goldenVisaStat.style.boxShadow = '';
+                });
+            }
         });
 
     </script>

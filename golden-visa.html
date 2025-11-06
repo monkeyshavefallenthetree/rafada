@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Visa Benefits - Rafada</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* ============================================
+               PHOTO URLS - EDIT ALL IMAGES HERE
+               ============================================ */
+            
+            /* Section Background Images */
+            --hero-bg: url('https://images.unsplash.com/photo-1555993539-1732b0258235?w=1920&h=1080&fit=crop');
+            --investment-bg: url('https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=1920&h=1080&fit=crop');
+            --cta-bg: url('https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=1920&h=1080&fit=crop');
+            
+            /* ============================================
+               COLOR SCHEME
+               ============================================ */
+            --primary-gold: #D4AF37;
+            --secondary-gold: #FFD700;
+            --light-gold: #F4E5C2;
+            --dark-black: #050505;
+            --light-black: #0F0F0F;
+            --medium-black: #1A1A1A;
+            --text-light: #FFFFFF;
+            --text-gray: #A0A0A0;
+            --accent-gradient: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #D4AF37 100%);
+            --modern-gold-gradient: linear-gradient(45deg, #D4AF37 0%, #FFD700 25%, #F4E5C2 50%, #FFD700 75%, #D4AF37 100%);
+            --glass-bg: rgba(255, 255, 255, 0.02);
+            --glass-border: rgba(212, 175, 55, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.01) 0%, transparent 50%),
+                var(--dark-black);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', 'Arial', sans-serif;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--primary-gold);
+        }
+
+        p {
+            font-family: 'Lato', 'Arial', sans-serif;
+            font-weight: 400;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-gold);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-gold);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(135deg, 
+                rgba(5, 5, 5, 0.95) 0%, 
+                rgba(15, 15, 15, 0.98) 50%, 
+                rgba(5, 5, 5, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 
+                0 4px 20px rgba(0, 0, 0, 0.4),
+                0 1px 4px rgba(212, 175, 55, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .logo {
+            height: 80px;
+            transition: all 0.3s ease;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(1.2) contrast(1.1);
+        }
+
+        .logo:hover img {
+            filter: brightness(1.4) contrast(1.2);
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 15px 30px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: transparent;
+            border: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: var(--dark-black);
+            background: var(--primary-gold);
+            border-color: var(--primary-gold);
+            box-shadow: 
+                0 6px 20px rgba(212, 175, 55, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--primary-gold);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: 
+                linear-gradient(135deg, rgba(5, 5, 5, 0.7) 0%, rgba(5, 5, 5, 0.4) 50%, rgba(212, 175, 55, 0.1) 100%),
+                var(--hero-bg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(5, 5, 5, 0.5) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1000px;
+            padding: 0 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.4rem);
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 8vw, 6.5rem);
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: -1.5px;
+            background: var(--modern-gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 300% 300%;
+            animation: shimmer 4s ease-in-out infinite, fadeInUp 1s ease-out 0.4s both;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero p {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 50px;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            padding: 20px 45px;
+            background: rgba(212, 175, 55, 0.15);
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--primary-gold);
+            border-radius: 15px;
+            color: var(--primary-gold);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            font-size: 1.2rem;
+            animation: fadeInUp 1s ease-out 0.8s both;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+        }
+
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--modern-gold-gradient);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .hero-cta:hover {
+            color: var(--dark-black);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 15px 40px rgba(212, 175, 55, 0.4),
+                0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-cta:hover::before {
+            left: 0;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            z-index: 10001;
+        }
+
+        .scroll-progress {
+            height: 100%;
+            background: var(--modern-gold-gradient);
+            width: 0%;
+            transition: width 0.1s ease;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: var(--accent-gradient);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 80px;
+            margin-top: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .benefit-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 50px 40px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(212, 175, 55, 0.3);
+            border-color: var(--primary-gold);
+        }
+
+        .benefit-card:hover::before {
+            opacity: 1;
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(255, 215, 0, 0.1));
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.1) rotate(5deg);
+            border-color: var(--primary-gold);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .benefit-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--primary-gold);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover .benefit-icon svg {
+            fill: var(--secondary-gold);
+            transform: scale(1.1);
+        }
+
+        .benefit-card h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+
+        .benefit-card p {
+            text-align: center;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .benefit-features {
+            list-style: none;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .benefit-features li {
+            padding: 12px 0;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-features li:before {
+            content: '✦';
+            color: var(--primary-gold);
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .benefit-card:hover .benefit-features li {
+            color: rgba(255, 255, 255, 1);
+        }
+
+        /* Investment Section */
+        .investment-section {
+            padding: 120px 0;
+            background: 
+                linear-gradient(135deg, rgba(5, 5, 5, 0.70) 0%, rgba(10, 10, 10, 0.80) 100%),
+                var(--investment-bg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .investment-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 60%),
+                linear-gradient(135deg, rgba(5, 5, 5, 0.5) 0%, rgba(15, 15, 15, 0.6) 100%);
+            z-index: 1;
+        }
+
+        .investment-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .investment-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 60px 50px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+        }
+
+        .investment-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 16px;
+            transition: all 0.4s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary-gold);
+            font-family: 'Montserrat', sans-serif;
+            display: block;
+            line-height: 1;
+            margin-bottom: 15px;
+            text-shadow: 0 3px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+
+        /* Requirements Section */
+        .requirements-section {
+            padding: 120px 0;
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .requirement-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .requirement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .requirement-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .requirement-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .requirement-number {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+            color: var(--dark-black);
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .requirement-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .requirement-card p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 0;
+            background: 
+                linear-gradient(45deg, rgba(5, 5, 5, 0.85) 0%, rgba(10, 10, 10, 0.90) 100%),
+                var(--cta-bg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at center, rgba(212, 175, 55, 0.2) 0%, transparent 70%),
+                linear-gradient(45deg, rgba(5, 5, 5, 0.7) 0%, rgba(15, 15, 15, 0.8) 100%);
+            z-index: 1;
+        }
+
+        .cta-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 70px 50px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 24px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-content h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 30px;
+        }
+
+        .cta-content p {
+            font-size: 1.4rem;
+            margin-bottom: 50px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 22px 50px;
+            background: rgba(212, 175, 55, 0.15);
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--primary-gold);
+            border-radius: 15px;
+            color: var(--primary-gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--modern-gold-gradient);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .cta-btn:hover {
+            color: var(--dark-black);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        .cta-btn:hover::before {
+            left: 0;
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            border-color: rgba(255, 255, 255, 0.3);
+            color: var(--text-light);
+        }
+
+        .cta-btn.secondary:hover {
+            border-color: var(--primary-gold);
+            color: var(--dark-black);
+        }
+
+        /* Footer */
+        footer {
+            background: 
+                linear-gradient(180deg, rgba(5, 5, 5, 0.90) 0%, rgba(10, 10, 10, 0.95) 100%),
+                var(--dark-black);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .footer-content {
+            color: var(--text-gray);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 0;
+            }
+
+            .nav-container {
+                padding: 0 20px;
+            }
+
+            .logo {
+                height: 60px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: calc(100% + 10px);
+                left: 0;
+                width: 100%;
+                background: rgba(5, 5, 5, 0.95);
+                backdrop-filter: blur(25px);
+                border-radius: 16px;
+                border: 1px solid rgba(212, 175, 55, 0.2);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+                flex-direction: column;
+                padding: 20px;
+                gap: 10px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 15px 20px;
+                text-align: center;
+            }
+
+            .menu-toggle {
+                display: flex;
+                padding: 8px;
+                border-radius: 8px;
+                border: 1px solid rgba(212, 175, 55, 0.2);
+                background: rgba(212, 175, 55, 0.05);
+            }
+
+            .hero {
+                background-attachment: scroll;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .investment-section,
+            .cta-section {
+                background-attachment: scroll;
+            }
+
+            .investment-content,
+            .cta-content {
+                padding: 40px 30px;
+            }
+
+            .investment-stats {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .requirements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .cta-btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 15px;
+            }
+
+            .logo {
+                height: 55px;
+            }
+
+            .benefit-card {
+                padding: 35px 25px;
+            }
+
+            .investment-content,
+            .cta-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo rafada.png" alt="Rafada Logo" />
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-subtitle">Invest in Your Future</div>
+            <h1>Greece Golden Visa</h1>
+            <p>Unlock European Citizenship Through Smart Real Estate Investment</p>
+            <a href="#benefits" class="hero-cta">Discover Benefits</a>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section" id="benefits">
+        <div class="container">
+            <h2 class="section-title fade-in">Golden Visa Benefits</h2>
+            <p class="section-subtitle fade-in">
+                Experience the exceptional advantages of Greek residency through strategic property investment
+            </p>
+            
+            <div class="benefits-grid">
+                <!-- Healthcare Benefit -->
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3>Healthcare Access</h3>
+                    <p>Gain access to Greece's quality healthcare system and seamless connections to trusted EU health networks.</p>
+                    <ul class="benefit-features">
+                        <li>Public & private healthcare access</li>
+                        <li>EU-wide medical coverage</li>
+                        <li>World-class medical facilities</li>
+                        <li>Comprehensive health services</li>
+                    </ul>
+                </div>
+
+                <!-- Investment Benefit -->
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+                        </svg>
+                    </div>
+                    <h3>Smart Investment</h3>
+                    <p>Affordable entry to the European Union with an investment that generates an average of 6% yearly rental income.</p>
+                    <ul class="benefit-features">
+                        <li>€250,000 minimum investment</li>
+                        <li>~6% average annual returns</li>
+                        <li>Strong property appreciation</li>
+                        <li>No annual fees required</li>
+                    </ul>
+                </div>
+
+                <!-- Lifestyle Benefit -->
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                    </div>
+                    <h3>Premium Lifestyle</h3>
+                    <p>Embrace a life of peace, safety, and Mediterranean comfort—perfectly tailored for families and retirees.</p>
+                    <ul class="benefit-features">
+                        <li>300+ days of sunshine yearly</li>
+                        <li>Low cost of living</li>
+                        <li>Safe & welcoming communities</li>
+                        <li>Rich cultural heritage</li>
+                    </ul>
+                </div>
+
+                <!-- Education Benefit -->
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+                        </svg>
+                    </div>
+                    <h3>Education Excellence</h3>
+                    <p>Access a robust European education system, from prestigious bilingual schools to respected universities across the EU.</p>
+                    <ul class="benefit-features">
+                        <li>International school access</li>
+                        <li>EU university opportunities</li>
+                        <li>Bilingual education programs</li>
+                        <li>Recognized EU qualifications</li>
+                    </ul>
+                </div>
+
+                <!-- Travel Freedom -->
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M2.5 19h19v2h-19zm19.57-9.36c-.21-.8-1.04-1.28-1.84-1.06L14.92 10l-6.9-6.43-1.93.51 4.14 7.17-4.97 1.33-1.97-1.54-1.45.39 2.59 4.49L21 11.49c.81-.23 1.28-1.05 1.07-1.85z"/>
+                        </svg>
+                    </div>
+                    <h3>Travel Freedom</h3>
+                    <p>Enjoy visa-free travel to 27 Schengen countries and simplified access to over 180+ destinations worldwide.</p>
+                    <ul class="benefit-features">
+                        <li>Schengen Area access</li>
+                        <li>EU travel privileges</li>
+                        <li>No visa requirements</li>
+                        <li>Freedom of movement</li>
+                    </ul>
+                </div>
+
+                <!-- Family Benefits -->
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                        </svg>
+                    </div>
+                    <h3>Family Inclusion</h3>
+                    <p>Extend residency rights to your entire family including spouse, children, and dependent parents.</p>
+                    <ul class="benefit-features">
+                        <li>Spouse inclusion</li>
+                        <li>Dependent children (under 21)</li>
+                        <li>Parents of both spouses</li>
+                        <li>Multi-generational benefits</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Section -->
+    <section class="investment-section">
+        <div class="container">
+            <div class="investment-content fade-in">
+                <h2 class="section-title">Investment Highlights</h2>
+                <p class="section-subtitle">Greece offers one of the most attractive Golden Visa programs in Europe with exceptional value and returns</p>
+                
+                <div class="investment-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">€250K</span>
+                        <span class="stat-label">Minimum Investment</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">~6%</span>
+                        <span class="stat-label">Annual Returns</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5 Years</span>
+                        <span class="stat-label">Renewal Period</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">27</span>
+                        <span class="stat-label">Schengen Countries</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="requirements-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Simple Requirements</h2>
+            <p class="section-subtitle fade-in">
+                The path to your Greek Golden Visa is straightforward and transparent
+            </p>
+            
+            <div class="requirements-grid">
+                <div class="requirement-card fade-in">
+                    <div class="requirement-number">1</div>
+                    <h3>Property Investment</h3>
+                    <p>Purchase real estate worth minimum €250,000 in designated areas (€500,000 in select regions)</p>
+                </div>
+                
+                <div class="requirement-card fade-in">
+                    <div class="requirement-number">2</div>
+                    <h3>Legal Documentation</h3>
+                    <p>Provide valid passport, proof of funds, and clean criminal record certificate</p>
+                </div>
+                
+                <div class="requirement-card fade-in">
+                    <div class="requirement-number">3</div>
+                    <h3>Health Insurance</h3>
+                    <p>Obtain private health insurance coverage for all family members included</p>
+                </div>
+                
+                <div class="requirement-card fade-in">
+                    <div class="requirement-number">4</div>
+                    <h3>Application Process</h3>
+                    <p>Submit application with required documents—typically approved within 2-3 months</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2>Ready to Begin Your Journey?</h2>
+                <p>Let Rafada guide you through every step of securing your Greek Golden Visa with premium properties in prime locations.</p>
+                <div class="cta-buttons">
+                    <a href="index.html#contact" class="cta-btn">Schedule Consultation</a>
+                    <a href="index.html#projects" class="cta-btn secondary">View Properties</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Rafada. Excellence in Real Estate Development.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const appearOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -100px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('visible');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        fadeElements.forEach(el => {
+            appearOnScroll.observe(el);
+        });
+
+        // Scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollProgress = (scrolled / windowHeight) * 100;
+            document.getElementById('scrollProgress').style.width = scrollProgress + '%';
+        });
+
+        // Benefit cards animation on hover
+        const benefitCards = document.querySelectorAll('.benefit-card');
+
+        benefitCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.zIndex = '10';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
+        });
+
+        // Parallax effect for sections (subtle)
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            
+            // Hero parallax
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+            }
+        });
+    </script>
+</body>
+</html>
+
